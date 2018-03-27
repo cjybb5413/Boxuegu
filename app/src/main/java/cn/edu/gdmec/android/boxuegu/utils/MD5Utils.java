@@ -4,17 +4,18 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * Created by Asus on 2018/3/20.
+ * Created by ASUS on 2018/3/15.
  */
 
 public class MD5Utils {
+/*MD5加密的算法*/
     public static String md5(String text){
         MessageDigest digest=null;
         try {
             digest=MessageDigest.getInstance("md5");
             byte[] result=digest.digest(text.getBytes());
             StringBuilder sb=new StringBuilder();
-            for (byte b : result){
+            for (byte b:result){
                 int number=b & 0xff;
                 String hex=Integer.toHexString(number);
                 if (hex.length()==1){
@@ -22,9 +23,10 @@ public class MD5Utils {
                 }else {
                     sb.append(hex);
                 }
+
             }
             return sb.toString();
-        } catch (NoSuchAlgorithmException e) {
+        }catch (NoSuchAlgorithmException e){
             e.printStackTrace();
             return "";
         }
