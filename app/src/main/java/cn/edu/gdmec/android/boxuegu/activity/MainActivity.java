@@ -23,7 +23,6 @@ import cn.edu.gdmec.android.boxuegu.fragment.CourseFragment;
 import cn.edu.gdmec.android.boxuegu.fragment.ExercisesFragment;
 import cn.edu.gdmec.android.boxuegu.fragment.MyinfoFragment;
 import cn.edu.gdmec.android.boxuegu.utils.AnalysisUtils;
-import cn.edu.gdmec.android.boxuegu.view.MyInfoView;
 
 
 /**
@@ -45,7 +44,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private TextView tv_back;
     private TextView tv_main_title;
     private RelativeLayout rl_title_bar;
-    private MyInfoView mMyInfoView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -238,9 +236,10 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
           boolean isLogin=data.getBooleanExtra("isLogin",true);
             String userName=data.getStringExtra("userName");
             if (isLogin) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_body,new MyinfoFragment()).commit();
                 setSelectedStatus(2);
-                return;
             }else {
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_body,new MyinfoFragment()).commit();
                 setSelectedStatus(2);
             }
 

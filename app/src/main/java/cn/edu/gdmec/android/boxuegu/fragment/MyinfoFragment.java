@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import cn.edu.gdmec.android.boxuegu.R;
 import cn.edu.gdmec.android.boxuegu.activity.LoginActivity;
+import cn.edu.gdmec.android.boxuegu.activity.SettingActivity;
 import cn.edu.gdmec.android.boxuegu.utils.AnalysisUtils;
 
 public class MyinfoFragment extends Fragment implements View.OnClickListener{
@@ -74,6 +75,8 @@ public class MyinfoFragment extends Fragment implements View.OnClickListener{
             case R.id.rl_setting:
                 if (AnalysisUtils.readLoginStatus(getActivity())){
                    //跳转到设置页面
+                    Intent intent=new Intent(getActivity(), SettingActivity.class);
+                    getActivity().startActivityForResult(intent,1);
                 }else {
                     Toast.makeText(getActivity(),"您未登录，请先登录",Toast.LENGTH_SHORT).show();
                 }

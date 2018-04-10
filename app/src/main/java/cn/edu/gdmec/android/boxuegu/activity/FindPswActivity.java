@@ -22,12 +22,13 @@ import cn.edu.gdmec.android.boxuegu.utils.MD5Utils;
  */
 
 public class FindPswActivity extends AppCompatActivity{
-    private EditText et_validate_name,et_user_name;
+    private EditText et_validate_name,et_user_name,et_new_psw;
     private Button btn_validate;
     private TextView tv_main_title;
     private TextView tv_back;
+    private TextView tv_new_psw;
     private String from;
-    private TextView tv_reset_psw,_tv_user_name;
+    private TextView tv_reset_psw,tv_user_name;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,14 +43,15 @@ public class FindPswActivity extends AppCompatActivity{
         tv_back=findViewById(R.id.tv_back);
         et_validate_name=findViewById(R.id.et_validate_name);
         btn_validate=findViewById(R.id.btn_validate);
-        tv_reset_psw=findViewById(R.id.tv_reset_psw);
+        et_new_psw=findViewById(R.id.et_new_psw);
+        tv_new_psw=findViewById(R.id.tv_new_psw);
         et_user_name=findViewById(R.id.et_user_name);
-        _tv_user_name=findViewById(R.id.tv_user_name);
+        tv_user_name=findViewById(R.id.tv_user_name);
         if ("security".equals(from)){
             tv_main_title.setText("设置密保");
         }else {
             tv_main_title.setText("找回密码");
-            _tv_user_name.setVisibility(View.VISIBLE);
+            tv_user_name.setVisibility(View.VISIBLE);
             et_user_name.setVisibility(View.VISIBLE);
         }
         tv_back.setOnClickListener(new View.OnClickListener() {
@@ -87,8 +89,7 @@ public class FindPswActivity extends AppCompatActivity{
                         Toast.makeText(FindPswActivity.this,"输入密保不正确",Toast.LENGTH_SHORT).show();
                         return;
                     }else {
-                        tv_reset_psw.setVisibility(View.VISIBLE);
-                        tv_reset_psw.setText("初始密码：123456");
+
                         savePsw(userName);
                     }
                 }
