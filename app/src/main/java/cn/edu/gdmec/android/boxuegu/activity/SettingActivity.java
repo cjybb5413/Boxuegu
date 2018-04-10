@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import cn.edu.gdmec.android.boxuegu.R;
+import cn.edu.gdmec.android.boxuegu.fragment.CourseFragment;
 import cn.edu.gdmec.android.boxuegu.utils.AnalysisUtils;
 
 public class SettingActivity extends Activity implements View.OnClickListener{
@@ -62,12 +63,12 @@ public class SettingActivity extends Activity implements View.OnClickListener{
               startActivity(intent1);
                 break;
             case R.id.rl_exit_login:
-                Toast.makeText(this,"退出登录成功",Toast.LENGTH_SHORT).show();
+                Toast.makeText(SettingActivity.this,"退出登录成功",Toast.LENGTH_SHORT).show();
                 AnalysisUtils.clearLoginStatus(this);
                 Intent data=new Intent();
                 data.putExtra("isLogin",false);
                 setResult(RESULT_OK,data);
-                finish();
+                SettingActivity.this.finish();
                 break;
         }
     }

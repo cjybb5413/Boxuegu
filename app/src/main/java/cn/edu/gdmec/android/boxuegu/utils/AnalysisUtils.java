@@ -29,5 +29,6 @@ public class AnalysisUtils {
         SharedPreferences.Editor editor = sp.edit();
         editor.putBoolean("isLogin", false);
         editor.putString("loginUserName", "");
+        editor.commit();
     }
 }

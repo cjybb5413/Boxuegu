@@ -49,10 +49,9 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        FragmentManager manager=getSupportFragmentManager();
+        /*FragmentManager manager=getSupportFragmentManager();
         FragmentTransaction transaction=manager.beginTransaction();
-        transaction.add(R.id.main_body,new CourseFragment()).commit();
+        transaction.add(R.id.main_body,new CourseFragment()).commit();*/
         init();
         initBottomBar();
         /*setListener();*/

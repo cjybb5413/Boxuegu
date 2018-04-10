@@ -89,19 +89,26 @@ public class FindPswActivity extends AppCompatActivity{
                         Toast.makeText(FindPswActivity.this,"输入密保不正确",Toast.LENGTH_SHORT).show();
                         return;
                     }else {
+                        et_new_psw.setVisibility(View.VISIBLE);
+                        tv_new_psw.setVisibility(View.VISIBLE);
+                        btn_validate.setText("确认修改");
+                        String newPsw=et_new_psw.getText().toString().trim();
+                        if (!TextUtils.isEmpty(newPsw)){
+                            savePsw(userName,newPsw);
+                        }
 
-                        savePsw(userName);
                     }
                 }
             }
         });
     }
-    private void savePsw(String userName){
-        String md5Psw= MD5Utils.md5("123456");
+    private void savePsw(String userName,String newPsw){
+        String md5Psw= MD5Utils.md5(newPsw);
         SharedPreferences sp=getSharedPreferences("loginInfo",MODE_PRIVATE);
         SharedPreferences.Editor editor=sp.edit();
         editor.putString(userName,md5Psw);
         editor.commit();
+        FindPswActivity.this.finish();
     }
     private void saveSecurity(String validateName){
         SharedPreferences sp=getSharedPreferences("loginInfo",MODE_PRIVATE);
