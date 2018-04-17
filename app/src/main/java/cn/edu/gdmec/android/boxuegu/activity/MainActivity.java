@@ -23,6 +23,7 @@ import cn.edu.gdmec.android.boxuegu.fragment.CourseFragment;
 import cn.edu.gdmec.android.boxuegu.fragment.ExercisesFragment;
 import cn.edu.gdmec.android.boxuegu.fragment.MyinfoFragment;
 import cn.edu.gdmec.android.boxuegu.utils.AnalysisUtils;
+import cn.edu.gdmec.android.boxuegu.view.ExercisesView;
 
 
 /**
@@ -44,6 +45,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private TextView tv_back;
     private TextView tv_main_title;
     private RelativeLayout rl_title_bar;
+    private ExercisesView mExercisesView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
