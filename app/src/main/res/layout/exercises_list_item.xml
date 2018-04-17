@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:singleLine="true"
-            android:text="第1章Android基础入门"
+            android:text=""
             android:textSize="12sp"
             android:textColor="#a3a3a3"/>
         <TextView
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:singleLine="true"
-            android:text="共计5题"
+            android:text=""
             android:textColor="#a3a3a3"
             android:textSize="12sp"/>
     </LinearLayout>

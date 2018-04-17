@@ -1,16 +1,12 @@
 package cn.edu.gdmec.android.boxuegu.activity;
 
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -23,7 +19,6 @@ import cn.edu.gdmec.android.boxuegu.fragment.CourseFragment;
 import cn.edu.gdmec.android.boxuegu.fragment.ExercisesFragment;
 import cn.edu.gdmec.android.boxuegu.fragment.MyinfoFragment;
 import cn.edu.gdmec.android.boxuegu.utils.AnalysisUtils;
-import cn.edu.gdmec.android.boxuegu.view.ExercisesView;
 
 
 /**
@@ -45,7 +40,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private TextView tv_back;
     private TextView tv_main_title;
     private RelativeLayout rl_title_bar;
-    private ExercisesView mExercisesView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -244,9 +238,10 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 setSelectedStatus(2);
             }
 
-
         }
-
+         if (requestCode==000){
+            setSelectedStatus(1);
+         }
     }
 }
 
