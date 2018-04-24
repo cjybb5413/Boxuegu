@@ -10,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import cn.edu.gdmec.android.boxuegu.R;
-import cn.edu.gdmec.android.boxuegu.fragment.CourseFragment;
 import cn.edu.gdmec.android.boxuegu.utils.AnalysisUtils;
 
 public class SettingActivity extends Activity implements View.OnClickListener{
