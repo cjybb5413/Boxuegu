@@ -161,6 +161,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 iv_course.setImageResource(R.drawable.main_course_icon);
                 iv_exercises.setImageResource(R.drawable.main_exercises_icon);
                 tv_main_title.setVisibility(View.GONE);
+                rl_title_bar.setVisibility(View.GONE);
                 break;
         }
     }
@@ -241,6 +242,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         }
          if (requestCode==000){
             setSelectedStatus(1);
+             getSupportFragmentManager().beginTransaction().replace(R.id.main_body,new ExercisesFragment()).commit();
          }
     }
 }

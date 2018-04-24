@@ -49,7 +49,7 @@ public class CourseFragment extends Fragment  {
             super.handleMessage(msg);
             switch (msg.what){
                 case MSG_AD_SLID:
-                    if (viewPagerAdapter.getCount()>0){
+                    if (viewPagerAdapter.getCount() > 0){
                         if (vp_advertBanner.getCurrentItem() == viewList.size()-1){
                             vp_advertBanner.setCurrentItem(0);
                         }else {
@@ -103,7 +103,7 @@ public class CourseFragment extends Fragment  {
         rv_list=view.findViewById(R.id.rv_list);
         adapter=new CourseListItemAdapter(getActivity());
         adapter.setData(rList);
-        rv_list.setLayoutManager(new GridLayoutManager(getActivity(),2));
+        rv_list.setLayoutManager(new GridLayoutManager(getActivity(),3));
         rv_list.setAdapter(adapter);
 
         vp_advertBanner=view.findViewById(R.id.vp_advertBanner);
@@ -119,6 +119,8 @@ public class CourseFragment extends Fragment  {
         viewList.add(imageView1);
         viewList.add(imageView2);
         viewList.add(imageView3);
+        viewPagerAdapter = new ADViewPagerAdapter(getActivity(),viewList);
+        vp_advertBanner.setAdapter(viewPagerAdapter);
 
         dots=new ArrayList<View>();
         dots_1=view.findViewById(R.id.dots_1);
@@ -151,7 +153,7 @@ public class CourseFragment extends Fragment  {
     private void resetSize(){
         int sw = getScreenWidth(getActivity());
         int adLheight = sw/2;
-        ViewGroup.LayoutParams adlp = (ViewPager.LayoutParams) rl_adBanner.getLayoutParams();
+        ViewGroup.LayoutParams adlp = rl_adBanner.getLayoutParams();
         adlp.width=sw;
         adlp.height=adLheight;
         rl_adBanner.setLayoutParams(adlp);

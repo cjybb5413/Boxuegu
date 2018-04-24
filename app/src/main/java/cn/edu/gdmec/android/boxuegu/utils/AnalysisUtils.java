@@ -42,6 +42,12 @@ public class AnalysisUtils {
         editor.putString("loginUserName", "");
         editor.commit();
     }
+    public static void finishItem(Context context,int id) {
+        SharedPreferences sp = context.getSharedPreferences("total", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putBoolean("isFinish"+id, true);
+        editor.commit();
+    }
 
     /*解析每章节的习题*/
     public static List<ExercisesBean> getExercisesInfos(InputStream is) throws Exception {

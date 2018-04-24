@@ -23,7 +23,7 @@ public class ExercisesDetailListItemAdapter extends RecyclerView.Adapter<Exercis
     private Context context;
     private LayoutInflater layoutInflater;
     private OnSelectListener onSelectListener;
-
+    private MyItemOnClicklistener myItemOnClicklistener;
     public ExercisesDetailListItemAdapter(Context context,OnSelectListener onSelectListener) {
         this.context = context;
         this.layoutInflater = LayoutInflater.from(context);
@@ -166,6 +166,9 @@ public class ExercisesDetailListItemAdapter extends RecyclerView.Adapter<Exercis
         holder.ivA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (myItemOnClicklistener!=null){
+                    myItemOnClicklistener.setItem(view,position);
+                }
                 if (selectedPosition.contains("" + position)) {
                     selectedPosition.remove("" + position);
                 } else {
@@ -177,6 +180,9 @@ public class ExercisesDetailListItemAdapter extends RecyclerView.Adapter<Exercis
         holder.ivB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (myItemOnClicklistener!=null){
+                    myItemOnClicklistener.setItem(view,position);
+                }
                 if (selectedPosition.contains("" + position)) {
                     selectedPosition.remove("" + position);
                 } else {
@@ -188,6 +194,9 @@ public class ExercisesDetailListItemAdapter extends RecyclerView.Adapter<Exercis
         holder.ivC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (myItemOnClicklistener!=null){
+                    myItemOnClicklistener.setItem(view,position);
+                }
                 if (selectedPosition.contains("" + position)) {
                     selectedPosition.remove("" + position);
                 } else {
@@ -199,6 +208,9 @@ public class ExercisesDetailListItemAdapter extends RecyclerView.Adapter<Exercis
         holder.ivD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (myItemOnClicklistener!=null){
+                    myItemOnClicklistener.setItem(view,position);
+                }
                 if (selectedPosition.contains("" + position)) {
                     selectedPosition.remove("" + position);
                 } else {
@@ -240,4 +252,12 @@ public class ExercisesDetailListItemAdapter extends RecyclerView.Adapter<Exercis
         void onSelectC(int position,ImageView iv_a,ImageView iv_b,ImageView iv_c,ImageView iv_d);
         void onSelectD(int position,ImageView iv_a,ImageView iv_b,ImageView iv_c,ImageView iv_d);
     }
+    public interface MyItemOnClicklistener{
+        void setItem(View view,int position);
+    }
+    public void setItemListener(MyItemOnClicklistener myItemOnClicklistener){
+        this.myItemOnClicklistener=myItemOnClicklistener;
+
+    }
+
 }

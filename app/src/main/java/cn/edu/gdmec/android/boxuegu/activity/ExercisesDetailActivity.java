@@ -29,8 +29,10 @@ public class ExercisesDetailActivity extends Activity {
     private RecyclerView rv_list;
     private int id;
     private String title;
+    private TextView tv_dibu;
     private List<ExercisesBean> eb1;
     private ExercisesDetailListItemAdapter adapter;
+    private int total=0;
 
 
     @Override
@@ -58,6 +60,7 @@ public class ExercisesDetailActivity extends Activity {
         tv_main_title = (TextView) findViewById(R.id.tv_main_title);
         title_bar = (RelativeLayout) findViewById(R.id.title_bar);
         title_bar.setBackgroundColor(Color.parseColor("#30B4FF"));
+        tv_dibu=findViewById(R.id.tv_dibu);
         tv_main_title.setText(title);
         rv_list =  findViewById(R.id.rv_list);
         tv_back.setOnClickListener(new View.OnClickListener() {
@@ -175,8 +178,20 @@ public class ExercisesDetailActivity extends Activity {
                AnalysisUtils.setABCDEnable(false,iv_a,iv_b,iv_c,iv_d);
            }
        });
+
        adapter.setData(eb1);
        rv_list.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+       adapter.setItemListener(new ExercisesDetailListItemAdapter.MyItemOnClicklistener() {
+           @Override
+           public void setItem(View view, int position) {
+               total++;
+               tv_dibu.setText("第"+(position+1)+"题完成，共"+adapter.getItemCount()+"题");
+               if (total==5){
+                   AnalysisUtils.finishItem(ExercisesDetailActivity.this,id);
+                   setResult(RESULT_OK);
+               }
+           }
+       });
        rv_list.setAdapter(adapter);
     }
 }
