@@ -79,18 +79,23 @@ public class VideoListActivity extends Activity {
             InputStream is=getResources().getAssets().open("data.json");
             jsonArray=new JSONArray(read(is));
             videoList=new ArrayList<VideoBean>();
-            for (int i=0;i<jsonArray.length();i++){
-                VideoBean bean=new VideoBean();
-                JSONObject jsonObject=jsonArray.getJSONObject(i);
-                if (jsonObject.getInt("chapterId") == chapterId){
-                    bean.chapterId = jsonObject.getInt("chapterId");
-                    bean.videoId = Integer.parseInt(jsonObject.getString("videoId"));
-                    bean.title=jsonObject.getString("title");
-                    bean.secondTitle=jsonObject.getString("secondTitle");
-                    bean.videoPath=jsonObject.getString("videoPath");
-                    videoList.add(bean);
+            for (int i=0;i<jsonArray.length();i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                if (jsonObject.getInt("chapterId") == chapterId) {
+                    JSONArray json = jsonObject.getJSONArray("data");
+                    for (int j = 0; j < json.length(); j++) {
+                        VideoBean bean = new VideoBean();
+                        JSONObject json1 = json.getJSONObject(j);
+                        bean.chapterId = jsonObject.getInt("chapterId");
+                        bean.videoId = Integer.parseInt(json1.getString("videoId"));
+                        bean.title = json1.getString("title");
+                        bean.secondTitle = json1.getString("secondTitle");
+                        bean.videoPath = json1.getString("videoPath");
+                        videoList.add(bean);
+                        bean = null;
+                    }
                 }
-                bean = null;
+
             }
         } catch (IOException e) {
             e.printStackTrace();

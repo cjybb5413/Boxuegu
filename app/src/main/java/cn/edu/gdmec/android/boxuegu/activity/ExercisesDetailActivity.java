@@ -95,6 +95,7 @@ public class ExercisesDetailActivity extends Activity {
                        break;
                }
                AnalysisUtils.setABCDEnable(false,iv_a,iv_b,iv_c,iv_d);
+
            }
 
            @Override
